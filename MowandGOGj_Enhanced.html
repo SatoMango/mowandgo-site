@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mow&Go Services | Lawn Care Experts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1597007601086-3f96c2b76c74?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    header {
+      background: #2ecc71;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      background: #27ae60;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background: #219150;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .cta a {
+      background: #2ecc71;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+    }
+
+    .cta a:hover {
+      background: #27ae60;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <h1>Mow&Go Services</h1>
+    <p>Fast. Reliable. Affordable Lawn Care.</p>
+    <p style="font-size: 1.1rem; margin-top: 10px;">From weekly mows to seasonal makeovers, we provide expert care for every yard.</p>
+    <p style="font-size: 1rem; color: #eaffea;">Proudly serving our local community with green results and great service.</p>
+  </header>
+
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  
+  <section class="section" id="about">
+    <h2>Welcome to Mow&Go Services</h2>
+    <p>At Mow&Go, we take pride in transforming ordinary lawns into lush, green spaces. Serving the local community with speed and reliability, we offer top-tier lawn care tailored to your needs. Whether it's a quick mow or a seasonal refresh, we've got your yard covered.</p>
+    <ul>
+      <li><strong>Experienced Team:</strong> Our professionals are trained, friendly, and passionate about lawn care.</li>
+      <li><strong>Affordable Pricing:</strong> We offer competitive rates without compromising quality.</li>
+      <li><strong>Satisfaction Guaranteed:</strong> If you're not happy, we’re not done. Simple as that.</li>
+    </ul>
+  </section>
+
+
+  
+  <section class="section" id="services">
+    <h2>Our Services & Pricing</h2>
+    <ul>
+      <li><strong>Lawn Mowing</strong> – $25 for small/medium yards, $45 for large yards</li>
+      <li><strong>Trimming & Edging</strong> – $15 add-on to mowing service</li>
+      <li><strong>Mulching</strong> – Starting at $60 (includes mulch & labor)</li>
+      <li><strong>Seasonal Cleanups</strong> – From $75 depending on yard size</li>
+      <li><strong>Custom Maintenance Plans</strong> – Weekly or bi-weekly visits tailored to your lawn’s needs</li>
+    </ul>
+  </section>
+
+
+  <section class="section" id="gallery">
+    <h2>Gallery</h2>
+    <p>Check back soon for before & after photos of our work!</p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:mow.gogj@gmail.com">mow.gogj@gmail.com</a></p>
+    <p>Phone: (657-369-1791)</p>
+    <div class="cta">
+      <a href="javascript:void(0)" onclick="openQuoteModal()">Get a Free Quote</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Mow&Go Services. All rights reserved.</p>
+  </footer>
+
+
+<!-- Modal Form -->
+<div id="quoteModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
+  <div style="background:white; padding:30px; border-radius:10px; max-width:500px; width:90%; position:relative;">
+    <span onclick="document.getElementById('quoteModal').style.display='none'" style="position:absolute; top:10px; right:15px; cursor:pointer; font-weight:bold;">&times;</span>
+    <h3>Get a Free Quote</h3>
+    <form action="https://formspree.io/f/mwkgyldq" method="POST" onsubmit="window.location.href='thankyou.html'; return false;">
+      <label for="name">Name (optional):</label><br>
+      <input type="text" name="name" style="width:100%; margin-bottom:10px;"><br>
+
+      <label for="phone">Phone Number:</label><br>
+      <input type="tel" name="phone" required style="width:100%; margin-bottom:10px;"><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" name="email" required style="width:100%; margin-bottom:10px;"><br>
+
+      <label for="message">Brief Description:</label><br>
+      <textarea name="message" required style="width:100%; height:80px; margin-bottom:10px;"></textarea><br>
+
+      <button type="submit" style="background:#2ecc71; color:white; padding:10px 20px; border:none; border-radius:5px;">Send</button>
+    </form>
+  </div>
+</div>
+<script>
+  function openQuoteModal() {
+    document.getElementById('quoteModal').style.display = 'flex';
+  }
+</script>
+
+</body>
+</html>
+
