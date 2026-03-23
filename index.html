@@ -4,67 +4,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Mow&Go Lawn Care | Grand Junction, CO</title>
 
 <style>
-body {
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background:#f5f7f6;
-}
+body { margin:0; font-family:Arial; background:#f5f5f5; }
 
 /* HERO */
 .hero {
-  background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
-  url('images/after1.jpg') center/cover no-repeat;
+  background:#2ecc71;
   color:white;
   text-align:center;
-  padding:100px 20px;
+  padding:60px 20px;
 }
-
-.hero h1 { font-size:2.5rem; }
 
 /* SECTION */
 .section {
   max-width:1000px;
-  margin:40px auto;
-  padding:30px;
+  margin:30px auto;
+  padding:20px;
   background:white;
-  border-radius:12px;
-  opacity:0;
-  transform:translateY(30px);
-  transition:0.6s;
-}
-
-.section.show {
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* SLIDER */
-.slider {
-  position:relative;
-  overflow:hidden;
   border-radius:10px;
 }
 
-.slider img {
-  width:100%;
-  display:block;
+/* BEFORE AFTER */
+.before-after {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin-top:20px;
 }
 
-.after-img {
-  position:absolute;
-  top:0;
+.before-after img {
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.before-after img:hover {
+  transform:scale(1.03);
+}
+
+/* ZOOM MODAL */
+#zoomModal {
+  display:none;
+  position:fixed;
+  z-index:9999;
   left:0;
-  width:50%;
-  overflow:hidden;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
 }
 
-.slider input {
-  position:absolute;
-  width:100%;
-  bottom:10px;
+#zoomModal img {
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
 }
 
 /* BUTTONS */
@@ -81,19 +82,6 @@ body {
 .call-btn { right:20px; background:#2ecc71; }
 .text-btn { right:140px; background:#3498db; }
 
-/* ZOOM */
-#zoomModal {
-  display:none;
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
-}
-#zoomModal img { max-width:90%; }
-
-/* FOOTER */
 footer {
   background:#222;
   color:white;
@@ -107,47 +95,34 @@ footer {
 <body>
 
 <div class="hero">
-  <h1>Premium Lawn Care in Grand Junction</h1>
-  <p>Clean. Sharp. Professional.</p>
+  <h1>Mow&Go Lawn Care</h1>
+  <p>Grand Junction, CO</p>
 </div>
 
-<!-- JOB 1 -->
-
 <section class="section">
-  <h2>Before & After</h2>
+  <h2>Before & After Results</h2>
 
-  <div class="slider">
+  <!-- JOB 1 -->
+
+  <div class="before-after">
     <img src="images/before.jpg">
-    <div class="after-img">
-      <img src="images/after1.jpg">
-    </div>
-    <input type="range" min="0" max="100" value="50" oninput="slide(this)">
+    <img src="images/after1.jpg">
   </div>
 
-</section>
+  <!-- JOB 2 -->
 
-<!-- JOB 2 -->
-
-<section class="section">
-  <div class="slider">
+  <div class="before-after">
     <img src="images/yard2-before.jpg">
-    <div class="after-img">
-      <img src="images/yard2-after.jpg">
-    </div>
-    <input type="range" min="0" max="100" value="50" oninput="slide(this)">
+    <img src="images/yard2-after.jpg">
   </div>
-</section>
 
-<!-- JOB 3 -->
+  <!-- JOB 3 -->
 
-<section class="section">
-  <div class="slider">
+  <div class="before-after">
     <img src="images/yard3-before.jpg">
-    <div class="after-img">
-      <img src="images/yard3-after.jpg">
-    </div>
-    <input type="range" min="0" max="100" value="50" oninput="slide(this)">
+    <img src="images/yard3-after.jpg">
   </div>
+
 </section>
 
 <footer>
@@ -156,40 +131,28 @@ footer {
 
 <a href="tel:19702616406" class="call-btn">📞 Call</a> <a href="sms:19702616406" class="text-btn">💬 Text</a>
 
+<!-- ZOOM MODAL -->
+
 <div id="zoomModal">
   <img id="zoomImg">
 </div>
 
 <script>
-// SLIDER
-function slide(slider){
-  const after = slider.previousElementSibling;
-  after.style.width = slider.value + "%";
-}
-
-// FADE IN
-const sections = document.querySelectorAll(".section");
-window.addEventListener("scroll", ()=>{
-  sections.forEach(sec=>{
-    const top = sec.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      sec.classList.add("show");
-    }
-  });
-});
-
-// ZOOM
+// ZOOM FUNCTION
 const modal = document.getElementById("zoomModal");
 const modalImg = document.getElementById("zoomImg");
 
-document.querySelectorAll("img").forEach(img=>{
-  img.onclick=()=>{
-    modal.style.display="flex";
-    modalImg.src=img.src;
-  }
+document.querySelectorAll("img").forEach(img => {
+  img.addEventListener("click", function() {
+    modal.style.display = "flex";
+    modalImg.src = this.src;
+  });
 });
 
-modal.onclick=()=>modal.style.display="none";
+// CLOSE ON CLICK
+modal.addEventListener("click", function() {
+  modal.style.display = "none";
+});
 </script>
 
 </body>
