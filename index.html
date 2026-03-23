@@ -6,55 +6,128 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Mow&Go Lawn Care | Grand Junction, CO Lawn Service</title>
-<meta name="description" content="Mow&Go Lawn Care provides professional lawn mowing, yard cleanup, and landscaping services in Grand Junction, Colorado. Fast, reliable, affordable.">
+<meta name="description" content="Affordable lawn care in Grand Junction, CO. Mowing, cleanups, junk removal. Fast, reliable service. Call or text today.">
 
 <style>
 body { margin:0; font-family:'Segoe UI',sans-serif; background:#f5f7f6; }
 
 /* HERO */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
   url('images/after1.jpg') center/cover no-repeat;
-  color:white; text-align:center; padding:100px 20px;
+  color:white;
+  text-align:center;
+  padding:100px 20px;
 }
-.hero h1 { font-size:2.8rem; }
-.btn { background:#2ecc71; padding:12px 25px; color:white; text-decoration:none; border-radius:6px; }
+.hero h1 { font-size:2.8rem; margin-bottom:10px; }
+.hero p { font-size:1.2rem; margin-bottom:20px; }
+
+.btn {
+  background:#2ecc71;
+  padding:14px 30px;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:bold;
+}
 
 /* NAV */
 nav { background:#27ae60; text-align:center; }
 nav a { color:white; padding:15px; display:inline-block; text-decoration:none; }
 
 /* SECTION */
-.section { max-width:1100px; margin:40px auto; padding:40px 20px; background:white; border-radius:10px; }
+.section {
+  max-width:1100px;
+  margin:30px auto;
+  padding:40px 20px;
+  background:white;
+  border-radius:10px;
+}
 
-/* FEATURES */
-.features { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; text-align:center; }
+h2 { text-align:center; }
+
+/* TRUST BAR */
+.trust {
+  display:flex;
+  justify-content:space-around;
+  text-align:center;
+  padding:20px;
+  background:#eafaf1;
+}
+
+/* BEFORE AFTER */
+.before-after {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.before-after img,
+.gallery img {
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:10px;
+  cursor:pointer;
+}
 
 /* GALLERY */
-.gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; }
-.gallery img, .before-after img { width:100%; height:220px; object-fit:cover; border-radius:10px; cursor:pointer; }
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  margin-top:20px;
+}
 
 /* REVIEWS */
-.reviews { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
-.review { background:#f9f9f9; padding:20px; border-radius:10px; }
-
-/* CALL BUTTON */
-.call-btn {
- position:fixed; bottom:20px; right:20px;
- background:#2ecc71; color:white;
- padding:15px 20px; border-radius:50px;
- text-decoration:none; font-weight:bold;
+.reviews {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
 }
+
+.review {
+  background:#f9f9f9;
+  padding:20px;
+  border-radius:10px;
+}
+
+/* CTA STRIP */
+.cta-strip {
+  background:#2ecc71;
+  color:white;
+  text-align:center;
+  padding:25px;
+  font-size:1.2rem;
+}
+
+/* BUTTONS */
+.call-btn, .text-btn {
+  position:fixed;
+  bottom:20px;
+  padding:14px 18px;
+  border-radius:50px;
+  color:white;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.call-btn { right:20px; background:#2ecc71; }
+.text-btn { right:140px; background:#3498db; }
 
 /* MODAL */
 #imgModal {
- display:none; position:fixed; top:0; left:0;
- width:100%; height:100%;
+ display:none;
+ position:fixed;
+ width:100%;
+ height:100%;
  background:rgba(0,0,0,0.9);
- justify-content:center; align-items:center;
+ justify-content:center;
+ align-items:center;
 }
 #imgModal img { max-width:90%; max-height:90%; }
 
+/* FOOTER */
 footer { background:#222; color:white; text-align:center; padding:20px; }
 </style>
 
@@ -62,40 +135,41 @@ footer { background:#222; color:white; text-align:center; padding:20px; }
 
 <body>
 
+<!-- HERO -->
+
 <div class="hero">
-  <h1>Premium Lawn Care in Grand Junction, Colorado</h1>
-  <p>Clean, sharp, professional results every time.</p>
+  <h1>Lawn Care in Grand Junction That Actually Shows Up</h1>
+  <p>Fast. Affordable. Clean results every time.</p>
   <a href="#contact" class="btn">Get a Free Quote</a>
 </div>
 
 <nav>
   <a href="#services">Services</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#contact">Contact</a>
+  <a href="#gallery">Work</a>
+  <a href="#contact">Quote</a>
 </nav>
 
-<section class="section">
-  <h2>Why Choose Us</h2>
-  <div class="features">
-    <div>✅ Fast & Reliable</div>
-    <div>💲 Affordable</div>
-    <div>🌱 High Quality</div>
-  </div>
-</section>
+<!-- TRUST -->
+
+<div class="trust">
+  <div>⭐ 5-Star Service</div>
+  <div>⚡ Fast Response</div>
+  <div>💲 Affordable Pricing</div>
+</div>
 
 <section class="section" id="services">
   <h2>Services</h2>
   <ul>
     <li>Lawn Mowing</li>
     <li>Edging & Trimming</li>
-    <li>Mulching</li>
     <li>Yard Cleanups</li>
+    <li>Mulching</li>
     <li>Junk Removal</li>
   </ul>
 </section>
 
 <section class="section" id="gallery">
-  <h2>Our Work</h2>
+  <h2>Real Results</h2>
 
   <div class="before-after">
     <img src="images/before.jpg">
@@ -109,34 +183,45 @@ footer { background:#222; color:white; text-align:center; padding:20px; }
   </div>
 </section>
 
+<div class="cta-strip">
+  📞 Call or Text Now for a Fast Quote: (657) 369-1791
+</div>
+
 <section class="section">
-  <h2>What Our Customers Say</h2>
+  <h2>What Customers Say</h2>
   <div class="reviews">
-    <div class="review">⭐⭐⭐⭐⭐ Great service, fast and clean!</div>
-    <div class="review">⭐⭐⭐⭐⭐ Yard looks amazing every time.</div>
-    <div class="review">⭐⭐⭐⭐⭐ Highly recommend Mow&Go!</div>
+    <div class="review">⭐⭐⭐⭐⭐ Showed up on time and crushed it.</div>
+    <div class="review">⭐⭐⭐⭐⭐ Yard has never looked better.</div>
+    <div class="review">⭐⭐⭐⭐⭐ Best lawn service I’ve used.</div>
   </div>
 </section>
 
 <section class="section" id="contact">
-  <h2>Get a Free Quote</h2>
+  <h2>Get Your Free Quote</h2>
 
   <form action="https://formspree.io/f/meogklny" method="POST">
     <input name="name" placeholder="Name" style="width:100%; padding:10px; margin-bottom:10px;">
     <input name="phone" placeholder="Phone" required style="width:100%; padding:10px; margin-bottom:10px;">
     <input name="email" placeholder="Email" required style="width:100%; padding:10px; margin-bottom:10px;">
-    <textarea name="message" placeholder="What do you need?" required style="width:100%; padding:10px;"></textarea>
+    <textarea name="message" placeholder="What do you need done?" required style="width:100%; padding:10px;"></textarea>
     <br><br>
-    <button type="submit" style="background:#2ecc71; color:white; padding:12px 25px; border:none;">Get Quote</button>
+    <button type="submit" style="background:#2ecc71; color:white; padding:12px 25px; border:none;">
+      Get My Quote
+    </button>
   </form>
 
 </section>
 
 <footer>
+  <p>Serving Grand Junction, Colorado</p>
   <p>&copy; 2025 Mow&Go Services</p>
 </footer>
 
-<a href="tel:19702616406" class="call-btn">📞 Call Now</a>
+<!-- BUTTONS -->
+
+<a href="tel:19702616406" class="call-btn">📞 Call</a> <a href="sms:19702616406" class="text-btn">💬 Text</a>
+
+<!-- MODAL -->
 
 <div id="imgModal">
   <img id="modalImg">
