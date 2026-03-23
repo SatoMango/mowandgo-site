@@ -4,78 +4,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mow&Go Lawn Care | Grand Junction, CO Lawn Service</title>
-<meta name="description" content="Affordable lawn care in Grand Junction, CO. Mowing, cleanups, junk removal. Fast, reliable service. Call or text today.">
+<title>Mow&Go Lawn Care | Grand Junction, CO</title>
 
 <style>
-body { margin:0; font-family:'Segoe UI',sans-serif; background:#f5f7f6; }
+body {
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:#f5f7f6;
+}
 
 /* HERO */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
   url('images/after1.jpg') center/cover no-repeat;
   color:white;
   text-align:center;
   padding:100px 20px;
 }
 
-/* NAV */
-nav { background:#27ae60; text-align:center; }
-nav a { color:white; padding:15px; display:inline-block; text-decoration:none; }
+.hero h1 { font-size:2.5rem; }
 
 /* SECTION */
 .section {
-  max-width:1100px;
-  margin:30px auto;
-  padding:40px 20px;
+  max-width:1000px;
+  margin:40px auto;
+  padding:30px;
   background:white;
+  border-radius:12px;
+  opacity:0;
+  transform:translateY(30px);
+  transition:0.6s;
+}
+
+.section.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* SLIDER */
+.slider {
+  position:relative;
+  overflow:hidden;
   border-radius:10px;
 }
 
-/* TRUST */
-.trust {
-  display:flex;
-  justify-content:space-around;
-  background:#eafaf1;
-  padding:20px;
-}
-
-/* SERVICES */
-.services-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.service-card {
-  background:#f9f9f9;
-  padding:20px;
-  border-radius:10px;
-  text-align:center;
-}
-
-/* BEFORE AFTER */
-.before-after {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-  margin-top:25px;
-}
-
-.before-after img {
+.slider img {
   width:100%;
-  height:230px;
-  object-fit:cover;
-  border-radius:10px;
-  cursor:pointer;
+  display:block;
 }
 
-/* REVIEWS */
-.reviews {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+.after-img {
+  position:absolute;
+  top:0;
+  left:0;
+  width:50%;
+  overflow:hidden;
+}
+
+.slider input {
+  position:absolute;
+  width:100%;
+  bottom:10px;
 }
 
 /* BUTTONS */
@@ -92,20 +81,25 @@ nav a { color:white; padding:15px; display:inline-block; text-decoration:none; }
 .call-btn { right:20px; background:#2ecc71; }
 .text-btn { right:140px; background:#3498db; }
 
-/* MODAL */
-#imgModal {
- display:none;
- position:fixed;
- width:100%;
- height:100%;
- background:rgba(0,0,0,0.9);
- justify-content:center;
- align-items:center;
+/* ZOOM */
+#zoomModal {
+  display:none;
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
 }
-#imgModal img { max-width:90%; }
+#zoomModal img { max-width:90%; }
 
 /* FOOTER */
-footer { background:#222; color:white; text-align:center; padding:20px; }
+footer {
+  background:#222;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
 </style>
 
 </head>
@@ -113,133 +107,86 @@ footer { background:#222; color:white; text-align:center; padding:20px; }
 <body>
 
 <div class="hero">
-  <h1>Lawn Care in Grand Junction That Actually Shows Up</h1>
-  <p>Fast. Affordable. Clean results every time.</p>
+  <h1>Premium Lawn Care in Grand Junction</h1>
+  <p>Clean. Sharp. Professional.</p>
 </div>
 
-<nav>
-  <a href="#services">Services</a>
-  <a href="#gallery">Work</a>
-  <a href="#contact">Quote</a>
-</nav>
+<!-- JOB 1 -->
 
-<div class="trust">
-  <div>⭐ 5-Star Service</div>
-  <div>⚡ Fast Response</div>
-  <div>💲 Affordable Pricing</div>
-</div>
+<section class="section">
+  <h2>Before & After</h2>
 
-<!-- SERVICES -->
-
-<section class="section" id="services">
-  <h2>Services & Pricing</h2>
-
-  <div class="services-grid">
-    <div class="service-card"><h3>Lawn Mowing</h3><p>$50 - $90+</p></div>
-    <div class="service-card"><h3>Edging & Trimming</h3><p>$20 - $40</p></div>
-    <div class="service-card"><h3>Yard Cleanups</h3><p>$120 - $300+</p></div>
-    <div class="service-card"><h3>Mulch & Rock</h3><p>$80+</p></div>
-    <div class="service-card"><h3>Tree & Shrub</h3><p>$60 - $150+</p></div>
-    <div class="service-card"><h3>Flower Beds</h3><p>$50 - $120</p></div>
-    <div class="service-card"><h3>Junk Removal</h3><p>$80 - $250+</p></div>
-    <div class="service-card"><h3>Fertilizing</h3><p>$65 - $150</p></div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-
-<section class="section" id="gallery">
-  <h2>Real Results</h2>
-
-  <div class="before-after">
+  <div class="slider">
     <img src="images/before.jpg">
-    <img src="images/after1.jpg">
+    <div class="after-img">
+      <img src="images/after1.jpg">
+    </div>
+    <input type="range" min="0" max="100" value="50" oninput="slide(this)">
   </div>
 
-  <div class="before-after">
+</section>
+
+<!-- JOB 2 -->
+
+<section class="section">
+  <div class="slider">
     <img src="images/yard2-before.jpg">
-    <img src="images/yard2-after.jpg">
+    <div class="after-img">
+      <img src="images/yard2-after.jpg">
+    </div>
+    <input type="range" min="0" max="100" value="50" oninput="slide(this)">
   </div>
+</section>
 
-  <div class="before-after">
+<!-- JOB 3 -->
+
+<section class="section">
+  <div class="slider">
     <img src="images/yard3-before.jpg">
-    <img src="images/yard3-after.jpg">
+    <div class="after-img">
+      <img src="images/yard3-after.jpg">
+    </div>
+    <input type="range" min="0" max="100" value="50" oninput="slide(this)">
   </div>
-
-</section>
-
-<!-- ESTIMATOR -->
-
-<section class="section">
-  <h2>Quick Estimate</h2>
-
-  <select id="yardSize" style="width:100%; padding:10px;">
-    <option value="50">Small Yard ($50)</option>
-    <option value="70">Medium Yard ($70)</option>
-    <option value="90">Large Yard ($90)</option>
-  </select><br><br>
-
-  <select id="extras" style="width:100%; padding:10px;">
-    <option value="0">No Extras</option>
-    <option value="20">Edging (+$20)</option>
-    <option value="40">Cleanup (+$40)</option>
-  </select><br><br>
-
-<button onclick="calc()" style="padding:12px 25px; background:#2ecc71; color:white;">Calculate</button>
-
-  <h3 id="result"></h3>
-</section>
-
-<!-- REVIEWS -->
-
-<section class="section">
-  <h2>Reviews</h2>
-  <div class="reviews">
-    <div>⭐⭐⭐⭐⭐ Great work!</div>
-    <div>⭐⭐⭐⭐⭐ Super reliable</div>
-    <div>⭐⭐⭐⭐⭐ Highly recommend</div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-
-<section class="section" id="contact">
-  <h2>Get a Quote</h2>
-
-  <form action="https://formspree.io/f/meogklny" method="POST">
-    <input name="name" placeholder="Name" style="width:100%; padding:10px;"><br><br>
-    <input name="phone" placeholder="Phone" required style="width:100%; padding:10px;"><br><br>
-    <input name="email" placeholder="Email" required style="width:100%; padding:10px;"><br><br>
-    <textarea name="message" placeholder="What do you need?" style="width:100%; padding:10px;"></textarea><br><br>
-    <button type="submit" style="padding:12px 25px; background:#2ecc71; color:white;">Submit</button>
-  </form>
-
-  <p>📞 (970) 261-6406</p>
 </section>
 
 <footer>
-  Serving Grand Junction, Colorado
+  📞 (970) 261-6406
 </footer>
 
 <a href="tel:19702616406" class="call-btn">📞 Call</a> <a href="sms:19702616406" class="text-btn">💬 Text</a>
 
-<div id="imgModal"><img id="modalImg"></div>
+<div id="zoomModal">
+  <img id="zoomImg">
+</div>
 
 <script>
-function calc(){
- let y = parseInt(document.getElementById("yardSize").value);
- let e = parseInt(document.getElementById("extras").value);
- document.getElementById("result").innerText = "Estimated: $" + (y+e) + "+";
+// SLIDER
+function slide(slider){
+  const after = slider.previousElementSibling;
+  after.style.width = slider.value + "%";
 }
 
-const modal = document.getElementById("imgModal");
-const modalImg = document.getElementById("modalImg");
+// FADE IN
+const sections = document.querySelectorAll(".section");
+window.addEventListener("scroll", ()=>{
+  sections.forEach(sec=>{
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      sec.classList.add("show");
+    }
+  });
+});
+
+// ZOOM
+const modal = document.getElementById("zoomModal");
+const modalImg = document.getElementById("zoomImg");
 
 document.querySelectorAll("img").forEach(img=>{
- img.onclick=()=>{
-  modal.style.display="flex";
-  modalImg.src=img.src;
- }
+  img.onclick=()=>{
+    modal.style.display="flex";
+    modalImg.src=img.src;
+  }
 });
 
 modal.onclick=()=>modal.style.display="none";
